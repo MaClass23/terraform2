@@ -1,6 +1,6 @@
-resource "google_compute_firewall" "default" {
-  name    = "mamz-firewall"
-  network = google_compute_network.default.name
+resource "google_compute_firewall" "default1" {
+  name    = "mamz-firewall-1"
+  network = google_compute_network.vpc_network.name
 
   allow {
     protocol = "icmp"
@@ -13,8 +13,4 @@ resource "google_compute_firewall" "default" {
 
   source_tags = ["web"]
   target_tags = ["jenkins", "nexus"]
-}
-
-resource "google_compute_network" "default" {
-  name = "test-network"
 }
